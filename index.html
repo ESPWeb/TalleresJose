@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talleres José - Mecánico de Confianza en Manises</title>
+    <!-- Google Fonts: Roboto & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- Color Scheme & General Styles --- */
+        :root {
+            --dark-blue: #0A2463;
+            --strong-red: #D83121;
+            --bright-yellow: #F2C84B;
+            --light-gray: #f4f4f4;
+            --text-color: #333;
+            --white-color: #fff;
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            background-color: var(--white-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        section:nth-of-type(odd) {
+            background-color: var(--light-gray);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-blue);
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Navigation / Hamburger Menu --- */
+        .header {
+            background-color: var(--white-color);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--strong-red);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--dark-blue);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- Hero Section --- */
+        #inicio {
+            padding-top: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--dark-blue);
+            color: var(--white-color);
+        }
+
+        .owner-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--bright-yellow);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+        }
+
+        #inicio h1 {
+            font-size: 3.5rem;
+            color: var(--white-color);
+            margin-bottom: 10px;
+        }
+
+        #inicio p {
+            font-size: 1.3rem;
+            color: var(--bright-yellow);
+            font-weight: 700;
+        }
+
+        /* --- Services & Why Choose Us Sections --- */
+        .grid-container-3-cols {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background-color: var(--white-color);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+            text-align: center;
+            border-top: 4px solid var(--bright-yellow);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--strong-red);
+            margin-bottom: 15px;
+        }
+        
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-blue);
+        }
+
+        /* --- Contact Section --- */
+        .contact-info {
+            max-width: 600px;
+            margin: 40px auto 0;
+            text-align: left;
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.8rem;
+            color: var(--strong-red);
+            width: 50px;
+            text-align: center;
+            margin-right: 20px;
+        }
+        
+        .contact-item strong {
+            color: var(--dark-blue);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            .grid-container-3-cols {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px; /* Height of header */
+                flex-direction: column;
+                background-color: var(--white-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                padding: 1rem 0;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 20px;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            h2 { font-size: 2.2rem; }
+            #inicio h1 { font-size: 2.8rem; }
+
+            .grid-container-3-cols {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER & NAVIGATION ==================== -->
+    <header class="header">
+        <nav class="navbar container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li class="nav-item"><a href="#porque-elegirnos" class="nav-link">¿Por Qué Elegirnos?</a></li>
+                <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ==================== HERO SECTION ==================== -->
+        <section id="inicio">
+            <!-- Reemplazar 'placeholder-jose.png' con la imagen del propietario -->
+            <img src="images/TallWEBP400.webp" alt="Jefe Imagen" class="owner-photo">
+            <h1>Talleres José</h1>
+            <p>Tu mecánico de confianza en Manises</p>
+        </section>
+
+        <!-- ==================== SERVICES SECTION ==================== -->
+        <section id="servicios">
+            <div class="container">
+                <h2>Nuestros Servicios</h2>
+                <p class="section-subtitle">Ofrecemos un servicio completo para el mantenimiento y reparación de tu vehículo. En Talleres José cuidamos de tu coche.</p>
+                <div class="grid-container-3-cols">
+                    <div class="card"><h3>Mecánica en General</h3></div>
+                    <div class="card"><h3>Mano de Obra Cualificada</h3></div>
+                    <div class="card"><h3>Electricidad</h3></div>
+                    <div class="card"><h3>Distribuciones</h3></div>
+                    <div class="card"><h3>Pre-ITV</h3></div>
+                    <div class="card"><h3>Diagnosis</h3></div>
+                    <div class="card"><h3>Frenos</h3></div>
+                    <div class="card"><h3>Amortiguación</h3></div>
+                    <div class="card"><h3>Aire Acondicionado</h3></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== WHY CHOOSE US SECTION ==================== -->
+        <section id="porque-elegirnos">
+            <div class="container">
+                <h2>¿Por Qué Elegirnos?</h2>
+                <p class="section-subtitle">Descubre las ventajas de confiar la salud de tu coche a Talleres José.</p>
+                <div class="grid-container-3-cols">
+                    <!-- Razón 1 -->
+                    <div class="card">
+                        <i class="fa-solid fa-award"></i>
+                        <h3>Experiencia y Profesionalidad</h3>
+                        <p>Años de experiencia en el sector garantizan un trabajo bien hecho y un diagnóstico preciso para tu vehículo.</p>
+                    </div>
+                    <!-- Razón 2 -->
+                    <div class="card">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                        <h3>Trato Cercano y Honesto</h3>
+                        <p>Te explicamos cada reparación de forma clara y sin sorpresas en la factura. Tu confianza es nuestra prioridad.</p>
+                    </div>
+                    <!-- Razón 3 -->
+                    <div class="card">
+                        <i class="fa-solid fa-car-battery"></i>
+                        <h3>Componentes de Calidad</h3>
+                        <p>Utilizamos solo recambios y componentes de primeras marcas para asegurar la máxima durabilidad y seguridad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CONTACT SECTION ==================== -->
+        <section id="contacto">
+            <div class="container">
+                <h2>Contacto</h2>
+                <p class="section-subtitle">¿Necesitas una revisión o una reparación? ¡Ponte en contacto con nosotros!</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong>Dirección:</strong><br>
+                            Carrer Traslació, 18, 46940 Manises, Valencia
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <strong>Teléfono:</strong><br>
+                            961 53 12 90
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@talleresjose.es
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <strong>Horario:</strong><br>
+                            Lunes a Viernes: 08:30 - 14:00 y 16:00 - 19:30<br>
+                            Sábado y Domingo: Cerrado
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- ==================== FOOTER / COOKIE BANNER ==================== -->
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #f0f0f0; padding: 15px; text-align: center; border-top: 1px solid #ccc; z-index: 1000; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+        <p style="margin: 0 15px 10px 15px;">
+            <strong>Aviso Sobre Cookies:</strong> Este sitio web no utiliza cookies. Sin embargo, nuestro proveedor de alojamiento utiliza cookies esenciales y funcionales para operar este sitio y prestar sus servicios. Al continuar utilizando este sitio, acepta el uso de cookies por parte de nuestro proveedor de alojamiento.
+        </p>
+        <div>
+            <button id="accept-cookies" style="background-color: var(--dark-blue); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin: 5px;">Aceptar</button>
+            <button id="decline-cookies" style="background-color: var(--strong-red); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin: 5px;">Rechazar</button>
+        </div>
+    </div>
+
+
+    <!-- ==================== JAVASCRIPT FOR INTERACTIVITY ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- Hamburger Menu Logic ---
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }));
+
+            // --- Cookie Banner Logic ---
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookies');
+            const declineBtn = document.getElementById('decline-cookies');
+
+            // Function to hide the banner
+            const hideBanner = () => {
+                cookieBanner.style.display = 'none';
+            };
+
+            // Add event listeners to buttons
+            acceptBtn.addEventListener('click', hideBanner);
+            declineBtn.addEventListener('click', hideBanner);
+        });
+    </script>
+</body>
+</html>
